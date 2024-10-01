@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table from Array</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>rollno</th>
+        <th>city</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be inserted here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Array of data
+    const data = [
+      { name: 'raju', "rollno": 30, "city": 'Bhopal' },
+      { name: 'Dharam', "rollno": 25, "city": 'indore' },
+      { name: 'Shani', "rollno": 35, "city": 'jabalpur' }
+    ];
+
+    // Function to generate table rows
+    function generateTableRows(data) {
+      return data.map(item => `
+        <tr>
+          <td>${item.name}</td>
+          <td>${item.rollno}</td>
+          <td>${item.city}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Insert rows into the table
+    document.querySelector('#data-table tbody').innerHTML = generateTableRows(data);
+  </script>
+</body>
+</html>
